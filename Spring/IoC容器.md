@@ -120,6 +120,21 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
     <bean id="bean2" class="..."/>
 </beans>
 ```
-&emsp;&emsp;*在前面的示例中，外部 bean定义是从三个文件加载的：services.xml，messageSource.xml和themeSource.xml。所有位置路径都相对于进行导入的XML文件，因此，services.xml必须与进行导入的文件位于同一目录或类路径位置，而 messageSource.xml和 themeSource.xml必须位于该位置下方的资源位置。如您所见，在导入文件时斜杠被忽略。但是，鉴于这些路径是相对的，所以最好不要使用任何斜线。根据 Spring Schema，导入的文件的内容（包括最高层级的`<beans />`元素）必须是有效的 XML bean定义。*  
+&emsp;&emsp;*在前面的示例中，外部 bean定义是从三个文件加载的：services.xml，messageSource.xml和 themeSource.xml。所有位置路径都相对于进行导入的XML文件，因此，services.xml必须与进行导入的文件位于同一目录或类路径位置，而 messageSource.xml和 themeSource.xml必须位于该位置下方的资源位置。如您所见，在导入文件时斜杠被忽略。但是，鉴于这些路径是相对的，所以最好不要使用任何斜线。根据 Spring Schema，导入的文件的内容（包括最高层级的`<beans />`元素）必须是有效的 XML bean定义。*  
 >&emsp;&emsp;可以但不建议使用相对的“ ../”路径引用父目录中的文件。这样做会造成对当前应用程序外部文件的依赖。特别是不建议对classpath：URL（例如：classpath：../ services.xml），在URL中使用此引用，运行时解析过程会选择最近的classpath根目录，然后查看其父目录。类路径配置的更改可能导致选择其他错误的目录。  
-&emsp;&emsp;你始终可以使用绝对路径来代替相对路径：例如：`file:C:/config/services.xml`以及`classpath:/config/services.xml`。 但是请注意，你正将应用程序的配置耦合到一个绝对路径。通常，最好为这样的绝对路径保留一个间接寻址，例如通过在运行时针对JVM系统属性解析的“ $ {…}”占位符。
+&emsp;&emsp;你始终可以使用绝对路径来代替相对路径：例如：`file:C:/config/services.xml`以及`classpath:/config/services.xml`。 但是请注意，你正将应用程序的配置耦合到一个绝对路径。通常，最好为这样的绝对路径保留一个间接寻址，例如通过在运行时针对JVM系统属性解析的“ $ {…}”占位符。  
+
+### 1.2.3. 使用这个容器  
+&emsp;&emsp;`ApplicationContext`是高级工厂的接口，该工厂能够维护不同bean及其依赖关系的注册表。通过使用方法`T getBean(String name，Class <T> requiredType)`，可以检索bean的实例。  
+
+&emsp;&emsp;使用ApplicationContext可以读取bean定义并访问它们，如以下示例所示：
+```
+// create and configure beans
+ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+
+// retrieve configured instance
+PetStoreService service = context.getBean("petStore", PetStoreService.class);
+
+// use configured instance
+List<String> userList = service.getUsernameList();
+```
