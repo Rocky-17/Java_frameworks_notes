@@ -1,7 +1,9 @@
 # 1. IoC容器  
 
-1.1[IoC容器以及Beans](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#ioc%E5%AE%B9%E5%99%A8%E4%BB%A5%E5%8F%8Abeans)  
-1.2[容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#%E5%AE%B9%E5%99%A8)
+1.1 [IoC容器以及Beans](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#ioc%E5%AE%B9%E5%99%A8%E4%BB%A5%E5%8F%8Abeans)  
+1.2 [容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#%E5%AE%B9%E5%99%A8)  
+&emsp;1.2.1 [配置元数据](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#121-%E9%85%8D%E7%BD%AE%E5%85%83%E6%95%B0%E6%8D%AE)  
+&emsp;1.2.2 [实例化一个容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#122-%E5%AE%9E%E4%BE%8B%E5%8C%96%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8)
 
 
 ## 1.1. IoC容器以及Beans  
@@ -53,4 +55,54 @@
 </beans>
 ```
 
-### 1.2.2. 实例化一个容器
+### 1.2.2. 实例化一个容器  
+
+&emsp;&emsp;提供给`ApplicationContext`构造函数的位置路径是资源字符串，这些资源字符串使容器可以从各种外部资源（例如本地文件系统，Java CLASSPATH等）加载配置元数据。  
+```
+ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", "daos.xml");
+```  
+&emsp;&emsp;以下示例展示一个服务层对象（services.xml）配置文件：  
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+
+    <bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl">
+        <property name="accountDao" ref="accountDao"/>
+        <property name="itemDao" ref="itemDao"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for services go here -->
+
+</beans>
+```  
+&emsp;&emsp;以下示例展示一个数据访问对象daos.xml文件：  
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountDao"
+        class="org.springframework.samples.jpetstore.dao.jpa.JpaAccountDao">
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <bean id="itemDao" class="org.springframework.samples.jpetstore.dao.jpa.JpaItemDao">
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for data access objects go here -->
+
+</beans>
+```
+&emsp;&emsp;在前面的示例中，服务层由`PetStoreServiceImpl`类和两个类型为`JpaAccountDao`和`JpaItemDao`的数据访问对象组成（基于JPA对象关系映射标准）。属性名称元素引用JavaBean属性的名称，而ref元素引用另一个bean定义的名称。`id`和`ref`元素之间的这种联系表达了协作对象之间的依赖性。  
+
+
+#### 1.2.2.1. 构建基于XML的配置元数据
