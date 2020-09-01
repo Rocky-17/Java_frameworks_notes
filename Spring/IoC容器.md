@@ -120,4 +120,4 @@ ApplicationContext context = new ClassPathXmlApplicationContext("services.xml", 
     <bean id="bean2" class="..."/>
 </beans>
 ```
-&emsp;&emsp;*在前面的示例中，外部bean定义是从三个文件加载的：services.xml，messageSource.xml和themeSource.xml。所有位置路径都相对于进行导入的XML文件，因此，services.xml必须与进行导入的文件位于同一目录或类路径位置，而messageSource.xml和themeSource.xml必须位于该位置下方的资源位置。如您所见，在导入文件时斜杠被忽略。但是，鉴于这些路径是相对的，所以最好不要使用任何斜线。根据 Spring Schema，导入的文件的内容（包括最高层级的`<beans />`元素）必须是有效的XML bean定义。*
+&emsp;&emsp;*在前面的示例中，外部 bean定义是从三个文件加载的：services.xml，messageSource.xml和themeSource.xml。所有位置路径都相对于进行导入的XML文件，因此，services.xml必须与进行导入的文件位于同一目录或类路径位置，而 messageSource.xml和 themeSource.xml必须位于该位置下方的资源位置。如您所见，在导入文件时斜杠被忽略。但是，鉴于这些路径是相对的，所以最好不要使用任何斜线。根据 Spring Schema，导入的文件的内容（包括最高层级的`<beans />`元素）必须是有效的 XML bean定义。*
