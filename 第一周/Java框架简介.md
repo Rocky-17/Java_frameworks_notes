@@ -3,7 +3,7 @@
 &emsp;&emsp;主要学习的是SSM框架(Spring+SpringMVC+MyBatis)  
 
 ## 1.Spring  
-![Spring官方文档地址](https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html)  
+[Spring官方文档地址](https://docs.spring.io/spring/docs/current/spring-framework-reference/index.html)  
 
 &emsp;&emsp;Spring使得建立一个Java企业级应用变得更容易，它提供了企业级应用开发环境中Java语言所需的一切，并且能够根据应用需求建立许多不同的架构。从Spring5.1版本开始，Spring只支持JDK1.8以上的应用。  
 
