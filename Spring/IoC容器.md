@@ -1,6 +1,8 @@
 # IoC容器  
 
-[toc]
+1.[IoC容器以及Beans](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#ioc%E5%AE%B9%E5%99%A8%E4%BB%A5%E5%8F%8Abeans)  
+2.[容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#%E5%AE%B9%E5%99%A8)
+
 
 ## IoC容器以及Beans  
 
@@ -19,3 +21,4 @@
 &emsp;&emsp;在Spring中，构成应用程序主干并由Spring IoC容器管理的对象称为Bean。Bean是由Spring IoC容器实例化，组装和以其他方式管理的对象。  
 
 ## 容器  
+
