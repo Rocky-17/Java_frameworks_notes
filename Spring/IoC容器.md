@@ -1,6 +1,6 @@
 # IoC容器  
 
-<!-- TOC -->autoauto- [IoC容器](#ioc容器)auto    - [IoC容器以及Beans](#ioc容器以及beans)auto    - [容器](#容器)autoauto<!-- /TOC -->
+[toc]
 
 ## IoC容器以及Beans  
 
