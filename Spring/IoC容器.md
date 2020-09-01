@@ -26,4 +26,4 @@
 &emsp;&emsp;Spring提供了`ApplicationContext`接口的几种实现。 在独立应用程序中，通常创建`ClassPathXmlApplicationContext`或`FileSystemXmlApplicationContext`的实例。尽管XML是传统的定义配置元数据的方法，但是你可以通过配置少量XML来声明性地启用对其他元数据格式的支持，从而指示容器将Java注解或代码用作元数据。  
 
 &emsp;&emsp;下图展示了Spring的工作原理：你的应用程序类与配置元数据结合在一起，在创建和初始化`ApplicationContext`之后，你会得到一个配置好的、可执行的系统或应用程序。  
-!()[https://docs.spring.io/spring/docs/current/spring-framework-reference/images/container-magic.png]
+![](https://docs.spring.io/spring/docs/current/spring-framework-reference/images/container-magic.png)
