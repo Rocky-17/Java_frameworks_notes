@@ -26,4 +26,31 @@
 &emsp;&emsp;Spring提供了`ApplicationContext`接口的几种实现。 在独立应用程序中，通常创建`ClassPathXmlApplicationContext`或`FileSystemXmlApplicationContext`的实例。尽管XML是传统的定义配置元数据的方法，但是你可以通过配置少量XML来声明性地启用对其他元数据格式的支持，从而指示容器将Java注解或代码用作元数据。  
 
 &emsp;&emsp;下图展示了Spring的工作原理：你的应用程序类与配置元数据结合在一起，在创建和初始化`ApplicationContext`之后，你会得到一个配置好的、可执行的系统或应用程序。  
-![The Spring IoC container](https://docs.spring.io/spring/docs/current/spring-framework-reference/images/container-magic.png)
+![The Spring IoC container](https://docs.spring.io/spring/docs/current/spring-framework-reference/images/container-magic.png)  
+
+### 1.2.1. 配置元数据  
+
+&emsp;&emsp;通过配置元数据来告诉容器需要实例化、配置和组装哪些对象。由于XML的元数据不是配置元数据的唯一允许形式，因此Spring IoC容器与实际写入配置元数据的格式无关。现在许多开发人员为他们的Spring应用程序选择基于Java的配置。  
+
+&emsp;&emsp;以下示例展示一个基于XML的配置元数据的基本结构：  
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="..." class="...">  
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
+    <bean id="..." class="...">
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions go here -->
+
+</beans>
+```
+
+### 1.2.2. 实例化一个容器
