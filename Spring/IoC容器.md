@@ -4,8 +4,8 @@
 1.2 [容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#%E5%AE%B9%E5%99%A8)  
 &emsp;1.2.1 [配置元数据](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#121-%E9%85%8D%E7%BD%AE%E5%85%83%E6%95%B0%E6%8D%AE)  
 &emsp;1.2.2 [实例化一个容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#122-%E5%AE%9E%E4%BE%8B%E5%8C%96%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8)  
-&emsp;&emsp;1.2.2.1. [构建基于XML的配置元数据](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#1221-%E6%9E%84%E5%BB%BA%E5%9F%BA%E4%BA%8Exml%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%83%E6%95%B0%E6%8D%AE)
-
+&emsp;&emsp;1.2.2.1 [构建基于XML的配置元数据](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#1221-%E6%9E%84%E5%BB%BA%E5%9F%BA%E4%BA%8Exml%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%83%E6%95%B0%E6%8D%AE)  
+&emsp;1.2.3 [使用这个容器](https://github.com/Rocky-17/Java_frameworks_notes/blob/master/Spring/IoC%E5%AE%B9%E5%99%A8.md#123-%E4%BD%BF%E7%94%A8%E8%BF%99%E4%B8%AA%E5%AE%B9%E5%99%A8)
 
 ## 1.1. IoC容器以及Beans  
 
