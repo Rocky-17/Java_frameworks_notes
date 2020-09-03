@@ -137,4 +137,13 @@ PetStoreService service = context.getBean("petStore", PetStoreService.class);
 
 // use configured instance
 List<String> userList = service.getUsernameList();
+```  
+
+&emsp;&emsp;最灵活的方法是`GenericApplicationContext`与读取器委托相结合使用。  
 ```
+GenericApplicationContext context = new GenericApplicationContext();
+new XmlBeanDefinitionReader(context).loadBeanDefinitions("services.xml", "daos.xml");
+context.refresh();
+```  
+&emsp;&emsp;您可以在同一`ApplicationContext`上混合和匹配此类阅读器委托，从不同的配置源读取Bean定义。  
+&emsp;&emsp;同样的你可以使用getBean检索bean的实例。 ApplicationContext接口还有其他几种检索bean的方法，但是理想情况下，你的应用程序代码永远不要使用它们。实际上，为了你的代码完全不依赖于Spring API，你的代码不应该调用getBean()方法。例如，Spring与Web框架的集成为各种Web框架组件（如控制器和JSF托管的bean）提供了依赖注入，使您可以通过元数据（例如自动装配注解）声明对特定bean的依赖。
